@@ -108,7 +108,10 @@ body.invitation-opening main,body.invitation-opening .falling-botanicals,body.in
 .name{letter-spacing:0;line-height:1.18}
 .surname{font-family:inherit;letter-spacing:.7px}
 .inner-letter strong{letter-spacing:.2px}
-.closing .signature{font-size:42px;line-height:1.35}
+.closing .signature{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:42px;line-height:1.15}
+.closing .signature-name{display:block}
+.closing .signature-name:first-child{font-size:.82em;letter-spacing:.08em;text-transform:uppercase}
+.closing .signature-ampersand{display:block;color:var(--gold);font-size:.72em;line-height:1}
 @media(max-width:600px){.name{font-size:40px}.closing .signature{font-size:35px}}
 .monogram{padding:7px;overflow:hidden;background:#fff8f338}
 .monogram img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 2px #733b4730)}
@@ -316,7 +319,7 @@ main{
 <div class="divider" aria-hidden="true">❧</div>
 <section class="section"><div class="eyebrow">Moments to cherish</div><h2 class="section-title">The wedding celebrations</h2><p class="section-sub">A little laughter, a little dancing, and a lifetime of love.<br>Join us as the celebrations unfold.</p><div class="events" id="events"></div></section>
 <section class="section"><div class="invite-panel"><div class="eyebrow">With love &amp; warm regards</div><h2 class="section-title">Our families</h2><p class="section-sub">Lovingly inviting you to share in our happiness.</p><ul class="names" id="invitees"></ul></div></section>
-<footer class="closing"><div class="divider" aria-hidden="true">❧</div><p>Celebrating love, surrounded by our favourite people.</p><div class="signature">Abhishek &amp; Ruchi</div><div class="eyebrow" style="margin-top:18px">Forever begins with you beside us</div></footer>
+<footer class="closing"><div class="divider" aria-hidden="true">❧</div><p>Celebrating love, surrounded by our favourite people.</p><div class="signature" aria-label="Abhishek and Ruchi"><span class="signature-name">ABHISHEK</span><span class="signature-ampersand" aria-hidden="true">&amp;</span><span class="signature-name">Ruchi</span></div><div class="eyebrow" style="margin-top:18px">Forever begins with you beside us</div></footer>
 </div>
 </main>
 <script>
