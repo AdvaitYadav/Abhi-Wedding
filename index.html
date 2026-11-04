@@ -20,25 +20,17 @@ body:after{inset:24px;border-color:#ab87914d;z-index:1}
 .hero{padding-top:150px}.closing{padding-bottom:160px}
 @media(max-width:600px){body:after{inset:18px}.wrap{width:calc(100% - 104px);padding:0 8px}.hero{min-height:890px;padding-top:110px}.name{font-size:36px;letter-spacing:-1px}.surname{letter-spacing:2px}.intro{font-size:14px}.eyebrow{font-size:9px;letter-spacing:2px}.section-title{font-size:29px}.event{padding:20px 16px}.event h3{font-size:25px}.section-sub{font-size:13px}.parents{font-size:12px}.names{gap:10px}.names li{font-size:14px}.closing p{font-size:18px}.closing .signature{font-size:29px}.closing{padding-left:0;padding-right:0}}
 
-/* Layered, slow-falling rose botanicals. Scroll velocity creates an inertial gust. */
+/* Photographic rose botanicals with a quiet, natural fall. */
 .falling-botanicals{position:fixed;inset:0;z-index:4;overflow:hidden;pointer-events:none;contain:strict}
 .falling-piece{display:block;position:absolute;top:-14vh;left:var(--left);width:var(--piece-w);height:var(--piece-h);opacity:0;perspective:180px;will-change:transform,opacity;animation:botanical-fall var(--fall-duration) linear var(--fall-delay) infinite}
-.wind-body{display:block;width:100%;height:100%;transform-style:preserve-3d;will-change:transform;transform:translate3d(var(--wind-x,0px),var(--wind-y,0px),0) rotateZ(var(--wind-rotate,0deg)) rotateY(var(--wind-yaw,0deg)) scale(var(--wind-scale,1))}
-.botanical{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;filter:blur(var(--softness,0)) drop-shadow(0 4px 4px #4f242d38);animation:botanical-flutter var(--flutter-duration) ease-in-out var(--flutter-delay) infinite alternate}
-.botanical.petal{overflow:hidden;transform-origin:50% 92%;border-radius:58% 54% 68% 32% / 66% 61% 39% 34%;background:radial-gradient(ellipse at 27% 18%,#fff8fae8 0 7%,transparent 28%),radial-gradient(ellipse at 76% 78%,#6e183761 0 12%,transparent 53%),linear-gradient(145deg,var(--petal-highlight) 0 18%,var(--petal-light) 42%,var(--petal-mid) 69%,var(--petal-dark) 100%);box-shadow:inset 3px 3px 5px #fff9fc9c,inset -4px -5px 7px #701a384d}
-.botanical.petal:before{content:'';position:absolute;inset:5% 9% 44% 20%;border-radius:72% 28% 68% 32%;background:linear-gradient(155deg,#fffafbc7 0 16%,var(--petal-light) 46%,transparent 82%);box-shadow:0 1px 1px #ffffff6b;opacity:.78;transform:rotate(-8deg) skewX(-5deg)}
-.botanical.petal:after{content:'';position:absolute;left:44%;bottom:-5%;width:15%;height:48%;border-radius:50%;background:linear-gradient(90deg,transparent,var(--petal-dark) 44% 58%,#fff7fa52 62%,transparent);opacity:.5;transform:rotate(7deg);filter:blur(.35px)}
-.botanical.petal-b{border-radius:46% 62% 61% 39% / 75% 55% 45% 25%;transform-origin:38% 94%}
-.botanical.petal-b:before{inset:8% 18% 49% 8%;transform:rotate(12deg) skewX(7deg)}
-.botanical.petal-c{border-radius:70% 35% 57% 43% / 54% 74% 26% 46%;transform-origin:65% 91%}
-.botanical.petal-c:before{inset:4% 7% 52% 28%;transform:rotate(-18deg)}
-.botanical.leaf{overflow:hidden;transform-origin:5% 52%;clip-path:polygon(0 50%,8% 36%,14% 38%,21% 25%,28% 28%,38% 15%,46% 20%,57% 8%,66% 15%,79% 11%,86% 24%,100% 50%,88% 72%,80% 71%,69% 87%,60% 82%,49% 94%,40% 82%,29% 86%,23% 72%,14% 70%,8% 59%);background:radial-gradient(ellipse at 66% 25%,#d6e0b85c 0 7%,transparent 34%),linear-gradient(8deg,transparent 48%,#dce3c88f 49% 51%,transparent 52%),repeating-linear-gradient(31deg,transparent 0 13%,#d9dfc424 14% 16%,transparent 17% 26%),linear-gradient(135deg,var(--leaf-light) 0 29%,var(--leaf-mid) 55%,var(--leaf-dark) 100%);box-shadow:inset 0 0 6px #27391f70}
-.botanical.leaf:before{content:'';position:absolute;left:5%;top:48%;width:91%;height:1px;background:linear-gradient(90deg,#45563a,#dfe6cfb8 48%,#45563a);box-shadow:0 1px 1px #26351f3f;transform:rotate(-1deg);transform-origin:left}
-.botanical.leaf:after{content:'';position:absolute;inset:13% 16% 14% 19%;background:repeating-linear-gradient(35deg,transparent 0 12%,#e7ead55c 13% 14%,transparent 15% 24%);opacity:.7;mix-blend-mode:screen}
-.botanical.leaf-young{filter:blur(var(--softness,0)) drop-shadow(0 4px 4px #29371e40) saturate(.88)}
-.botanical.leaf-dark{filter:blur(var(--softness,0)) drop-shadow(0 4px 4px #29371e40) brightness(.82)}
-@keyframes botanical-fall{0%{opacity:0;transform:translate3d(0,-8vh,0) rotate(0deg)}3%{opacity:var(--piece-opacity)}50%{opacity:var(--piece-opacity)}68%{opacity:.68}82%{opacity:.38}93%{opacity:.13}100%{opacity:0;transform:translate3d(var(--drift),124vh,0) rotate(var(--fall-turn))}}
-@keyframes botanical-flutter{0%{transform:rotateZ(calc(-14deg + var(--natural-tilt))) rotateX(18deg) rotateY(-12deg) scale(.96)}38%{transform:rotateZ(calc(3deg + var(--natural-tilt))) rotateX(-12deg) rotateY(62deg) scale(1.03)}72%{transform:rotateZ(calc(17deg + var(--natural-tilt))) rotateX(13deg) rotateY(126deg) scale(.92)}100%{transform:rotateZ(calc(26deg + var(--natural-tilt))) rotateX(-8deg) rotateY(172deg) scale(.98)}}
+.wind-body{display:block;width:100%;height:100%;transform-style:preserve-3d}
+.botanical{position:relative;display:block;width:100%;height:100%;transform-style:preserve-3d;background-position:center;background-repeat:no-repeat;background-size:contain;filter:blur(var(--softness,0)) saturate(var(--tone-saturation,1)) brightness(var(--tone-brightness,1)) hue-rotate(var(--tone-hue,0deg)) drop-shadow(0 3px 2px #4f242d2e);animation:botanical-flutter var(--flutter-duration) ease-in-out var(--flutter-delay) infinite alternate;backface-visibility:visible}
+.botanical.petal{transform-origin:54% 86%;background-image:url('assets/rose-petal-photo.webp')}
+.botanical.petal-b{transform-origin:50% 92%;background-image:url('assets/rose-petal-narrow.webp')}
+.botanical.petal-c{transform-origin:24% 86%;background-image:url('assets/rose-petal-curled.webp')}
+.botanical.leaf{transform-origin:8% 56%;background-image:url('assets/rose-leaf-photo.webp');filter:blur(var(--softness,0)) saturate(var(--tone-saturation,.9)) brightness(var(--tone-brightness,.9)) hue-rotate(var(--tone-hue,0deg)) drop-shadow(0 3px 2px #29371e30)}
+@keyframes botanical-fall{0%{opacity:0;transform:translate3d(0,-8vh,0) rotate(0deg)}4%{opacity:var(--piece-opacity)}48%{opacity:var(--piece-opacity)}66%{opacity:.58}82%{opacity:.3}93%{opacity:.09}100%{opacity:0;transform:translate3d(var(--drift),124vh,0) rotate(var(--fall-turn))}}
+@keyframes botanical-flutter{0%{transform:rotateZ(calc(-11deg + var(--natural-tilt))) rotateX(9deg) rotateY(-8deg) scale(.97)}34%{transform:rotateZ(calc(1deg + var(--natural-tilt))) rotateX(-8deg) rotateY(46deg) scale(1.01)}68%{transform:rotateZ(calc(13deg + var(--natural-tilt))) rotateX(7deg) rotateY(103deg) scale(.95)}100%{transform:rotateZ(calc(21deg + var(--natural-tilt))) rotateX(-5deg) rotateY(154deg) scale(.99)}}
 .youtube-music-player{position:fixed;right:0;bottom:0;z-index:-1;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
 .music-toggle{position:fixed;right:22px;bottom:22px;z-index:20;display:flex;align-items:center;gap:8px;min-height:42px;padding:0 14px 0 11px;border:1px solid #fff8f0b8;border-radius:999px;color:#fffaf8;background:#754451d9;box-shadow:0 10px 28px #57313d3d,inset 0 1px 0 #ffffff42;backdrop-filter:blur(10px);cursor:pointer;font:10px/1 Arial,sans-serif;letter-spacing:1.1px;text-transform:uppercase;transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
 .music-toggle:hover,.music-toggle:focus-visible{transform:translateY(-2px);background:#643744f2;box-shadow:0 13px 32px #57313d52,inset 0 1px 0 #ffffff52}
@@ -122,6 +114,165 @@ body.invitation-opening main,body.invitation-opening .falling-botanicals,body.in
 .monogram img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 2px #733b4730)}
 .letter-monogram img{display:block;width:clamp(58px,9vw,84px);height:auto;filter:drop-shadow(0 2px 2px #633b2b28)}
 
+/* Local preview: a photographic, rose-framed envelope replaces the illustrated cover. */
+.invitation-gate{
+  --photo-w:min(560px,91vw,calc(74vh * .8));
+  color:#5a2934;
+  background:
+    radial-gradient(circle at 50% 43%,#ffe4d8b8 0 18%,transparent 58%),
+    linear-gradient(145deg,#e9b09d,#c98278 58%,#a95f62);
+}
+.invitation-gate:before{
+  inset:-8%;
+  background:linear-gradient(120deg,#fff4e637,transparent 38% 67%,#6f1f2f22);
+  animation:none;
+}
+.invitation-gate:after{display:none;animation:none;transform:none}
+.gate-glow{top:53%;width:min(850px,118vw);opacity:.52;background:radial-gradient(circle,#ffebca70 0 8%,#7d283114 40%,transparent 69%);filter:blur(22px);animation:none}
+.letter-scene{width:min(720px,100vw);padding:18px 0 24px}
+.gate-kicker{margin-bottom:2px;color:#7b3745;text-shadow:0 1px 0 #ffeadd;font-weight:700}
+.gate-title{margin-bottom:clamp(14px,2.8vh,26px);color:#6e2638;font-family:'Lucida Calligraphy','Apple Chancery','URW Chancery L','Segoe Script',cursive;font-size:clamp(29px,4.6vw,44px);text-shadow:0 1px 0 #fff3e5,0 8px 24px #762d3030}
+.envelope{
+  width:var(--photo-w);
+  aspect-ratio:4/5;
+  border:1px solid #fff0dfb8;
+  border-radius:30px;
+  overflow:hidden;
+  background:url('assets/envelope-opening-photo.png') center/cover no-repeat;
+  box-shadow:0 34px 70px #64293352,0 8px 24px #6b293a3d,inset 0 0 0 1px #fff8ec75;
+  filter:none;
+  animation:none;
+  transition:transform 1.05s cubic-bezier(.16,.78,.18,1),filter .9s ease,box-shadow .9s ease;
+}
+.envelope:after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;border-radius:inherit;background:linear-gradient(180deg,#ffe7d226,transparent 24% 75%,#5b18301c);box-shadow:inset 0 0 44px #6a233024;transition:background .75s ease}
+.envelope-back,.envelope-front,.envelope-flap{display:none}
+.inner-letter{
+  z-index:4;
+  left:8%;right:8%;bottom:8%;height:76%;
+  justify-content:center;
+  padding:6% 4%;
+  border-color:#c49b61;
+  border-radius:14px;
+  opacity:0;
+  clip-path:polygon(.6% .5%,24% 0,51% .45%,76% 0,99.4% .7%,100% 28%,99.5% 57%,100% 99%,75% 99.5%,49% 100%,25% 99.6%,.5% 100%,0 72%,.45% 38%);
+  background:radial-gradient(ellipse at 50% 26%,#fffdf2 0,#f9eccd 60%,#e8c88d 100%);
+  box-shadow:0 24px 60px #5a24385c,inset 0 0 32px #8d572132;
+  transform:translate3d(0,12%,70px) scale(.86) rotateX(-4deg);
+  transform-origin:50% 70%;
+  transition:opacity .5s ease .58s,transform 1.08s cubic-bezier(.16,.78,.18,1) .5s,filter .8s ease .5s;
+}
+.wax-seal{
+  top:54.7%;
+  width:clamp(88px,14vw,112px);
+  color:transparent;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+  text-shadow:none;
+  animation:photo-seal-pulse 2.6s ease-in-out infinite;
+}
+.wax-seal:before{inset:-8px;border:2px solid #ffe1a6c9;background:radial-gradient(circle,#fff4ce35,transparent 63%);box-shadow:0 0 0 7px #a64f3f26,0 0 30px #ffcf7878,inset 0 0 18px #fff1bd73}
+.wax-seal:after{inset:-18px;border:1px solid #8b263d70;background:transparent;clip-path:none;box-shadow:none}
+.wax-seal i:before,.wax-seal i:after{display:none}
+.wax-seal:hover,.wax-seal:focus-visible{filter:brightness(1.08);box-shadow:none;outline:2px solid #fff1c6;outline-offset:8px}
+.wax-seal:active{transform:translate(-50%,-48%) scale(.92)}
+.gate-hint{display:inline-flex;align-items:center;min-height:38px;margin:clamp(14px,2.8vh,26px) 0 0;padding:0 18px;border:1px solid #f2cda4;border-radius:999px;color:#fff9ed;background:#7c3042e8;box-shadow:0 8px 22px #6a25383a,inset 0 1px 0 #fff6e95c;font-size:10px;font-weight:700;letter-spacing:2.1px;text-shadow:0 1px 2px #40101d}
+.invitation-gate.is-opening .envelope{animation:none;transform:translateY(2%) scale(1.025);filter:none;box-shadow:0 42px 90px #55202f63}
+.invitation-gate.is-opening .envelope:after{background:linear-gradient(#5d1f3166,#4a172b8c)}
+.invitation-gate.is-opening .inner-letter{z-index:6;opacity:1;transform:translate3d(0,-4%,80px) scale(1) rotateX(-1deg);filter:drop-shadow(0 26px 22px #4f21364a)}
+.invitation-gate.is-opening .wax-seal{opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(1.38);filter:blur(3px)}
+.invitation-gate.is-reading .inner-letter{pointer-events:auto}
+.invitation-gate.is-reading .letter-enter{z-index:12;pointer-events:auto}
+@keyframes photo-envelope-idle{50%{transform:translateY(-7px) scale(1.008);box-shadow:0 40px 78px #64293358,0 10px 27px #6b293a40,inset 0 0 0 1px #fff8ec8f}}
+@keyframes photo-seal-pulse{50%{transform:translate(-50%,-50%) scale(1.08);filter:brightness(1.12)}}
+@keyframes photo-sheen{0%,22%{transform:translateX(-70%)}58%,100%{transform:translateX(70%)}}
+@media(max-width:600px){
+  .invitation-gate{--photo-w:min(92vw,calc(70vh * .8))}
+  .letter-scene{padding:8px 0 14px}
+  .gate-kicker{font-size:8px;letter-spacing:3px}
+  .gate-title{margin-bottom:12px;font-size:clamp(27px,8vw,36px)}
+  .envelope{border-radius:22px}
+  .inner-letter{left:6%;right:6%;bottom:7%;height:78%;padding:5% 4%}
+  .gate-hint{margin-top:12px}
+  .wax-seal{top:54.7%;width:86px}
+}
+
+/* Local preview: carry the cover's richer rose-and-gold palette through the invitation. */
+:root{--paper:#efc2b6;--ink:#4d2530;--muted:#7a4650;--rose:#9b3851;--gold:#aa7836;--line:#bf777b}
+body{background:#d79384;color:var(--ink)}
+body:before{opacity:.11;mix-blend-mode:multiply}
+body:after{border-color:#8e4f5766;box-shadow:inset 0 0 0 1px #fff1e054}
+main{
+  background:
+    radial-gradient(circle at 50% 7%,#fffaf4 0 8%,transparent 30%),
+    radial-gradient(circle at 7% 28%,#a83d5425 0 8%,transparent 27%),
+    radial-gradient(circle at 94% 64%,#a83d5428 0 9%,transparent 30%),
+    linear-gradient(180deg,#f9e6df 0,#efbbae 38%,#e7a08e 68%,#f4cfc2 100%);
+}
+.floral-border{filter:saturate(1.24) contrast(1.06) drop-shadow(0 0 5px #642f3b28)}
+.wrap{padding-top:78px}
+.hero{min-height:calc(100svh - 56px);margin:28px 0;padding:82px 18px;border:1px solid #d69a83;border-radius:34px;background:radial-gradient(circle at 50% 8%,#f8c6b1 0 10%,transparent 35%),linear-gradient(145deg,#a8495d,#d58073 46%,#efb29d);box-shadow:0 28px 58px #71324138,inset 0 1px 0 #ffe9d8}
+.hero-inner{
+  width:min(660px,100%);
+  padding:54px clamp(18px,4vw,46px) 58px;
+  border:1px solid #bd747780;
+  border-radius:46% 46% 22px 22px / 12% 12% 22px 22px;
+  background:linear-gradient(165deg,#fff9f0e8,#f8e1d7df 65%,#f2c9bddb);
+  box-shadow:0 26px 58px #76374428,inset 0 1px 0 #fffdf4,inset 0 0 55px #9d49541a;
+  backdrop-filter:blur(2px);
+}
+.monogram{width:92px;height:104px;border:1px solid #b77665;background:#fff8efcc;box-shadow:0 13px 28px #7a354426,inset 0 0 0 5px #e5b4a42d}
+.monogram img{filter:drop-shadow(0 3px 3px #733b4740) saturate(1.2) contrast(1.05)}
+.eyebrow{color:#8d3d50;font-weight:700;letter-spacing:4.3px}
+.intro{color:#5f3540;font-size:18px;text-shadow:0 1px 0 #fff7ef}
+.name{color:#7e2942;text-shadow:0 2px 0 #fff5eb,0 7px 20px #7f334526}
+.surname{color:#5c3440}
+.parents{color:#6f414b;font-weight:600}
+.and{color:#b07a35;text-shadow:0 2px 0 #fff6e6,0 5px 14px #8c5c2530}
+.fine{height:2px;background:linear-gradient(90deg,transparent,#ac7434 30% 70%,transparent)}
+.small{color:#6c3b46;font-weight:600}
+.wrap>.divider{margin:18px auto;color:#8e3349;font-size:25px}
+.wrap>.divider:before,.wrap>.divider:after{background:linear-gradient(90deg,transparent,#a3625d 50%,transparent)}
+.section{margin:30px 0;padding:66px clamp(12px,3vw,36px);border:1px solid #c57c7f66;border-radius:28px;background:linear-gradient(165deg,#fff6ece6,#f7d9cdd6);box-shadow:0 24px 50px #7b374225,inset 0 1px 0 #fffdf8}
+.section-title{color:#6f293d;text-shadow:0 2px 0 #fff4e8;font-size:42px}
+.section-sub{color:#75434c;font-size:15px}
+.event{overflow:hidden;border:1px solid #b7616d85;border-radius:18px;padding:34px;background:linear-gradient(150deg,#fffaf2f2,#f3c9bcf2);box-shadow:0 18px 32px #7a344322,inset 0 1px 0 #fffdf8}
+.event:before{content:'';position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,#75273e,#c27965 48%,#b48338)}
+.event-number{color:#a66f31;font-weight:700}
+.event h3{color:#7b2a43;font-size:31px;text-shadow:0 1px 0 #fff6ec}
+.event .mood{color:#814c54}
+.event .date{border-top-color:#b874746b;color:#5f3440;font-weight:700}
+.event .venue{color:#65283b;font-weight:600}
+.event address{color:#75464e}
+.map{display:inline-flex;align-items:center;min-height:36px;padding:0 15px;border:1px solid #8e384d;border-radius:999px;color:#fff9ef;background:#813149;box-shadow:0 7px 16px #69273a2e;text-decoration:none}
+.map:hover,.map:focus-visible{background:#9b3c54;outline:2px solid #e8b678;outline-offset:3px}
+.section+.section{padding:14px;background:linear-gradient(145deg,#a94b5c,#70263e);border-color:#d39a75;box-shadow:0 26px 55px #6b293c3d,inset 0 0 0 1px #fff0dd40}
+.invite-panel{border:1px solid #e3b782;padding:48px 24px;border-radius:20px;color:#fff7e8;background:radial-gradient(circle at 50% 0,#c06b6970,transparent 42%),linear-gradient(145deg,#8f344d,#65233b)}
+.invite-panel .eyebrow{color:#f1c98f;text-shadow:0 1px 2px #451224}
+.invite-panel .section-title{color:#fff5e5;text-shadow:0 3px 18px #3f1022}
+.invite-panel .section-sub{color:#f4dacf}
+.invite-panel .names li{color:#fff4e5}
+.invite-panel .names li:before{color:#f1c27c}
+.closing{margin-top:44px;padding:88px 20px 150px;color:#572b38}
+.closing p{color:#6e3844}
+.closing .signature{color:#812d47;text-shadow:0 2px 0 #fff2e5,0 8px 20px #7430402e}
+.closing .divider{color:#a87332}
+.music-toggle{background:#782e46ed;border-color:#f5d9ba;box-shadow:0 12px 30px #5320344a,inset 0 1px 0 #ffffff52}
+.music-toggle.is-unmuted{background:#7b6a38ed}
+@media(max-width:600px){
+  .wrap{padding-top:62px}
+  .hero{min-height:auto;margin:20px 0;padding:48px 10px;border-radius:24px}
+  .hero-inner{padding:44px 15px 50px;border-radius:110px 110px 20px 20px}
+  .monogram{width:80px;height:92px}
+  .intro{font-size:15px}
+  .section{margin:24px 0;padding:52px 10px;border-radius:21px}
+  .section-title{font-size:32px}
+  .event{padding:28px 20px}
+  .event h3{font-size:28px}
+  .section+.section{padding:9px}
+  .invite-panel{padding:40px 14px}
+}
+
 </style>
 </head>
 <body class="gate-active">
@@ -140,7 +291,7 @@ body.invitation-opening main,body.invitation-opening .falling-botanicals,body.in
       <div class="envelope-flap" aria-hidden="true"></div>
       <button class="wax-seal" id="wax-seal" type="button" aria-label="Open Abhishek and Ruchi's wedding invitation" aria-expanded="false"><span>A</span><i aria-hidden="true">·</i><span>R</span></button>
     </div>
-    <p class="gate-hint">Press the seal to open</p>
+    <p class="gate-hint">Tap the glowing seal to open</p>
   </div>
 </div>
 <noscript><style>.invitation-gate{display:none!important}body.gate-active{height:auto;overflow:auto!important}</style></noscript>
@@ -204,7 +355,7 @@ function openInvitation(){
     letterEnter.tabIndex=0;
     letterEnter.setAttribute('aria-hidden','false');
     letterEnter.focus({preventScroll:true});
-  },reducedMotion?80:1450);
+  },reducedMotion?80:950);
 }
 
 function finishInvitation(){
@@ -321,135 +472,64 @@ musicFrame.src=musicUrl.toString();
 
 function createBotanicals(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  const petalColors=[
-    ['#ffe4ea','#f58aa2','#d23762','#81163b'],
-    ['#ffd4dc','#e7657e','#b9214b','#68132f'],
-    ['#fff0f5','#f6a9bd','#df6285','#9d294f'],
-    ['#f8c1cc','#d94f6c','#a81742','#5e102b'],
-    ['#ffe8ee','#ee7892','#c82d56','#761535']
+  const petalTones=[
+    {hue:'0deg',saturation:1.08,brightness:.92},
+    {hue:'-9deg',saturation:.98,brightness:1.08},
+    {hue:'10deg',saturation:.84,brightness:1.13},
+    {hue:'-3deg',saturation:1.15,brightness:.82},
+    {hue:'15deg',saturation:.76,brightness:1.17}
   ];
-  const leafColors=[
-    ['#a9b992','#6f865e','#3f5638'],
-    ['#c0cba8','#7d9369','#4b613e'],
-    ['#8fa578','#607952','#354c31']
-  ];
-  const count=innerWidth<700?22:38;
+  const count=innerWidth<700?20:34;
   for(let index=0;index<count;index+=1){
-    const isLeaf=index%5===0;
+    const isLeaf=index%7===0;
     const piece=element('span','falling-piece');
-    const wind=element('span','wind-body');
+    const carrier=element('span','wind-body');
     const variant=index%3;
-    const shape=element('span','botanical '+(isLeaf?'leaf '+(variant===0?'leaf-young':'leaf-dark'):'petal petal-'+['a','b','c'][variant]));
-    const size=isLeaf?8+Math.random()*5:14+Math.random()*12;
-    const width=isLeaf?size*1.55:size*(.78+Math.random()*.26);
-    const height=isLeaf?size*.8:size*(1.08+Math.random()*.28);
-    const duration=21+Math.random()*15;
+    const shape=element('span','botanical '+(isLeaf?'leaf':'petal petal-'+['a','b','c'][variant]));
+    let width;
+    let height;
+    if(isLeaf){
+      width=13+Math.random()*6;
+      height=width*.66;
+    }else if(variant===1){
+      width=12+Math.random()*7;
+      height=width*1.5;
+    }else if(variant===2){
+      width=17+Math.random()*11;
+      height=width*.7;
+    }else{
+      width=18+Math.random()*14;
+      height=width*.7;
+    }
+    const duration=24+Math.random()*16;
     piece.style.setProperty('--left',(Math.random()*100).toFixed(2)+'%');
     piece.style.setProperty('--piece-w',width.toFixed(1)+'px');
     piece.style.setProperty('--piece-h',height.toFixed(1)+'px');
     piece.style.setProperty('--fall-duration',duration.toFixed(1)+'s');
     piece.style.setProperty('--fall-delay',(-Math.random()*duration).toFixed(1)+'s');
-    piece.style.setProperty('--drift',(Math.random()*190-95).toFixed(1)+'px');
-    piece.style.setProperty('--fall-turn',(Math.random()*1080-540).toFixed(0)+'deg');
-    piece.style.setProperty('--piece-opacity',(isLeaf?.54+Math.random()*.2:.84+Math.random()*.14).toFixed(2));
-    piece.style.setProperty('--flutter-duration',(3.8+Math.random()*4.8).toFixed(1)+'s');
+    piece.style.setProperty('--drift',(Math.random()*130-65).toFixed(1)+'px');
+    piece.style.setProperty('--fall-turn',(Math.random()*700-350).toFixed(0)+'deg');
+    piece.style.setProperty('--piece-opacity',(isLeaf?.62+Math.random()*.16:.78+Math.random()*.18).toFixed(2));
+    piece.style.setProperty('--flutter-duration',(5.2+Math.random()*5.8).toFixed(1)+'s');
     piece.style.setProperty('--flutter-delay',(-Math.random()*7).toFixed(1)+'s');
-    piece.style.setProperty('--natural-tilt',(Math.random()*28-14).toFixed(1)+'deg');
-    shape.style.setProperty('--softness',(Math.random()<.18?.45:Math.random()*.16).toFixed(2)+'px');
-    piece.dataset.windResponse=(.58+Math.random()*1.08).toFixed(2);
-    piece.dataset.spinResponse=(.5+Math.random()*.82).toFixed(2);
-    piece.dataset.phase=(Math.random()*Math.PI*2).toFixed(3);
+    piece.style.setProperty('--natural-tilt',(Math.random()*24-12).toFixed(1)+'deg');
+    shape.style.setProperty('--softness',(Math.random()<.12?.25:Math.random()*.08).toFixed(2)+'px');
     if(isLeaf){
-      const leaf=leafColors[index%leafColors.length];
-      shape.style.setProperty('--leaf-light',leaf[0]);
-      shape.style.setProperty('--leaf-mid',leaf[1]);
-      shape.style.setProperty('--leaf-dark',leaf[2]);
+      shape.style.setProperty('--tone-hue',(Math.random()*8-4).toFixed(1)+'deg');
+      shape.style.setProperty('--tone-saturation',(.82+Math.random()*.16).toFixed(2));
+      shape.style.setProperty('--tone-brightness',(.76+Math.random()*.18).toFixed(2));
     }else{
-      const petal=petalColors[index%petalColors.length];
-      shape.style.setProperty('--petal-highlight',petal[0]);
-      shape.style.setProperty('--petal-light',petal[1]);
-      shape.style.setProperty('--petal-mid',petal[2]);
-      shape.style.setProperty('--petal-dark',petal[3]);
+      const tone=petalTones[index%petalTones.length];
+      shape.style.setProperty('--tone-hue',tone.hue);
+      shape.style.setProperty('--tone-saturation',tone.saturation);
+      shape.style.setProperty('--tone-brightness',tone.brightness);
     }
-    wind.append(shape);
-    piece.append(wind);
+    carrier.append(shape);
+    piece.append(carrier);
     botanicals.append(piece);
   }
 }
 
-function setupScrollWind(){
-  if(!botanicals.children.length)return;
-  let previousScrollY=scrollY;
-  let previousFrame=performance.now();
-  let desiredWind=0;
-  let wind=0;
-  let desiredTwist=0;
-  let twist=0;
-  let lastMotionTime=previousFrame;
-  let previousTouchY=null;
-  const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
-  const blend=(milliseconds,timeConstant)=>1-Math.exp(-milliseconds/timeConstant);
-  function anticipateScroll(delta){
-    const input=clamp(delta,-190,190);
-    desiredWind=clamp(desiredWind+(input-desiredWind)*.46,-195,195);
-    desiredTwist=clamp(desiredTwist+(input*.54-desiredTwist)*.42,-118,118);
-    lastMotionTime=performance.now();
-  }
-  addEventListener('wheel',event=>{
-    const unit=event.deltaMode===1?16:event.deltaMode===2?innerHeight:1;
-    anticipateScroll(event.deltaY*unit);
-  },{passive:true});
-  addEventListener('touchstart',event=>{
-    previousTouchY=event.touches[0]?.clientY??null;
-  },{passive:true});
-  addEventListener('touchmove',event=>{
-    const currentY=event.touches[0]?.clientY;
-    if(previousTouchY!==null&&currentY!==undefined){
-      anticipateScroll((previousTouchY-currentY)*2.2);
-      previousTouchY=currentY;
-    }
-  },{passive:true});
-  addEventListener('touchend',()=>{previousTouchY=null;},{passive:true});
-  function animate(now){
-    const elapsed=clamp(now-previousFrame,8,42);
-    previousFrame=now;
-    const currentScrollY=scrollY;
-    const scrollDelta=currentScrollY-previousScrollY;
-    previousScrollY=currentScrollY;
-    if(Math.abs(scrollDelta)>.08){
-      const velocity=scrollDelta*(16.67/elapsed);
-      const measuredWind=clamp(velocity*3.35,-205,205);
-      desiredWind+=(measuredWind-desiredWind)*blend(elapsed,48);
-      desiredTwist+=(measuredWind*.55-desiredTwist)*blend(elapsed,62);
-      lastMotionTime=now;
-    }else if(now-lastMotionTime>32){
-      desiredWind*=Math.exp(-elapsed/520);
-      desiredTwist*=Math.exp(-elapsed/560);
-    }
-    wind+=(desiredWind-wind)*blend(elapsed,92);
-    twist+=(desiredTwist-twist)*blend(elapsed,112);
-    if(Math.abs(wind)<.02&&Math.abs(desiredWind)<.02){wind=0;desiredWind=0;}
-    if(Math.abs(twist)<.02&&Math.abs(desiredTwist)<.02){twist=0;desiredTwist=0;}
-    const strength=Math.min(1,Math.abs(wind)/155);
-    Array.from(botanicals.children).forEach(piece=>{
-      const response=Number(piece.dataset.windResponse);
-      const spin=Number(piece.dataset.spinResponse);
-      const phase=Number(piece.dataset.phase);
-      const curl=Math.sin(now*.0054+phase)*27*strength;
-      const bob=Math.cos(now*.0042+phase)*11*strength-Math.abs(wind)*.032;
-      const rotation=twist*spin+curl*(.52+spin*.14);
-      piece.style.setProperty('--wind-x',(wind*response+curl).toFixed(2)+'px');
-      piece.style.setProperty('--wind-y',bob.toFixed(2)+'px');
-      piece.style.setProperty('--wind-rotate',rotation.toFixed(2)+'deg');
-      piece.style.setProperty('--wind-yaw',(rotation*.42).toFixed(2)+'deg');
-      piece.style.setProperty('--wind-scale',(1+strength*.08).toFixed(3));
-    });
-    requestAnimationFrame(animate);
-  }
-  requestAnimationFrame(animate);
-}
-
 createBotanicals();
-setupScrollWind();
 </script>
 </body></html>
