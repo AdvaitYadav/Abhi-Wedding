@@ -191,6 +191,7 @@ let letterReady = false;
 
 function openInvitation(){
   if(gateOpening)return;
+  enableWeddingMusic();
   gateOpening=true;
   waxSeal.disabled=true;
   waxSeal.setAttribute('aria-expanded','true');
@@ -285,6 +286,14 @@ function syncMusicPlayback(){
   sendMusicCommand('setVolume',[46]);
   sendMusicCommand(musicMuted?'mute':'unMute');
   sendMusicCommand('playVideo');
+}
+
+function enableWeddingMusic(){
+  musicMuted=false;
+  sendMusicCommand('setVolume',[46]);
+  sendMusicCommand('unMute');
+  sendMusicCommand('playVideo');
+  setMusicMuted(false);
 }
 
 musicToggle.addEventListener('click',()=>{
