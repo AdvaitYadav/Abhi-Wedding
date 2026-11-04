@@ -37,7 +37,7 @@ body:after{inset:24px;border-color:#ab87914d;z-index:1}
 .botanical.leaf:after{content:'';position:absolute;inset:13% 16% 14% 19%;background:repeating-linear-gradient(35deg,transparent 0 12%,#e7ead55c 13% 14%,transparent 15% 24%);opacity:.7;mix-blend-mode:screen}
 .botanical.leaf-young{filter:blur(var(--softness,0)) drop-shadow(0 4px 4px #29371e40) saturate(.88)}
 .botanical.leaf-dark{filter:blur(var(--softness,0)) drop-shadow(0 4px 4px #29371e40) brightness(.82)}
-@keyframes botanical-fall{0%{opacity:0;transform:translate3d(0,-8vh,0) rotate(0deg)}9%{opacity:var(--piece-opacity)}64%{opacity:var(--piece-opacity)}84%{opacity:.32}94%{opacity:.12}100%{opacity:0;transform:translate3d(var(--drift),124vh,0) rotate(var(--fall-turn))}}
+@keyframes botanical-fall{0%{opacity:0;transform:translate3d(0,-8vh,0) rotate(0deg)}3%{opacity:var(--piece-opacity)}50%{opacity:var(--piece-opacity)}68%{opacity:.68}82%{opacity:.38}93%{opacity:.13}100%{opacity:0;transform:translate3d(var(--drift),124vh,0) rotate(var(--fall-turn))}}
 @keyframes botanical-flutter{0%{transform:rotateZ(calc(-14deg + var(--natural-tilt))) rotateX(18deg) rotateY(-12deg) scale(.96)}38%{transform:rotateZ(calc(3deg + var(--natural-tilt))) rotateX(-12deg) rotateY(62deg) scale(1.03)}72%{transform:rotateZ(calc(17deg + var(--natural-tilt))) rotateX(13deg) rotateY(126deg) scale(.92)}100%{transform:rotateZ(calc(26deg + var(--natural-tilt))) rotateX(-8deg) rotateY(172deg) scale(.98)}}
 .youtube-music-player{position:fixed;right:0;bottom:0;z-index:-1;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
 .music-toggle{position:fixed;right:22px;bottom:22px;z-index:20;display:flex;align-items:center;gap:8px;min-height:42px;padding:0 14px 0 11px;border:1px solid #fff8f0b8;border-radius:999px;color:#fffaf8;background:#754451d9;box-shadow:0 10px 28px #57313d3d,inset 0 1px 0 #ffffff42;backdrop-filter:blur(10px);cursor:pointer;font:10px/1 Arial,sans-serif;letter-spacing:1.1px;text-transform:uppercase;transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
@@ -313,10 +313,11 @@ musicFrame.src=musicUrl.toString();
 function createBotanicals(){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   const petalColors=[
-    ['#fff4f7','#efb1c0','#d56b87','#9b3655'],
-    ['#ffe8ee','#e998ad','#bf4e70','#7d2848'],
-    ['#fff7f8','#f5c5ce','#d87c90','#a4435b'],
-    ['#ffeef2','#eeb2bf','#c65e77','#873047']
+    ['#ffe4ea','#f58aa2','#d23762','#81163b'],
+    ['#ffd4dc','#e7657e','#b9214b','#68132f'],
+    ['#fff0f5','#f6a9bd','#df6285','#9d294f'],
+    ['#f8c1cc','#d94f6c','#a81742','#5e102b'],
+    ['#ffe8ee','#ee7892','#c82d56','#761535']
   ];
   const leafColors=[
     ['#a9b992','#6f865e','#3f5638'],
@@ -341,7 +342,7 @@ function createBotanicals(){
     piece.style.setProperty('--fall-delay',(-Math.random()*duration).toFixed(1)+'s');
     piece.style.setProperty('--drift',(Math.random()*190-95).toFixed(1)+'px');
     piece.style.setProperty('--fall-turn',(Math.random()*1080-540).toFixed(0)+'deg');
-    piece.style.setProperty('--piece-opacity',(.58+Math.random()*.28).toFixed(2));
+    piece.style.setProperty('--piece-opacity',(isLeaf?.54+Math.random()*.2:.84+Math.random()*.14).toFixed(2));
     piece.style.setProperty('--flutter-duration',(3.8+Math.random()*4.8).toFixed(1)+'s');
     piece.style.setProperty('--flutter-delay',(-Math.random()*7).toFixed(1)+'s');
     piece.style.setProperty('--natural-tilt',(Math.random()*28-14).toFixed(1)+'deg');
