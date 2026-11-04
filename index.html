@@ -111,6 +111,17 @@ body.invitation-opening main,body.invitation-opening .falling-botanicals,body.in
 @media(max-width:600px){.invitation-gate{--envelope-w:min(620px,89vw)}.letter-scene{padding-top:15px}.gate-title{margin-bottom:32px}.inner-letter{left:5%;right:5%;padding-top:7%}.inner-letter small{max-width:80%}.letter-message{max-width:84%;margin-top:7px}.letter-enter{margin-top:8px;min-height:30px;padding:0 14px;font-size:7px}.gate-hint{margin-top:34px}.wax-seal{top:53%}}
 @media(prefers-reduced-motion:reduce){.invitation-gate:before,.gate-glow,.envelope,.wax-seal,.gate-hint{animation:none}.envelope-flap,.inner-letter{transition-duration:.01ms;transition-delay:0s}.invitation-gate.is-leaving{animation:gate-depart .3s ease forwards}body.gate-active main,body.gate-active .falling-botanicals,body.gate-active .music-toggle{filter:none;transform:none}}
 
+/* Couple-name titles use a formal handwritten script. */
+.name,.inner-letter strong,.closing .signature{font-family:'Lucida Calligraphy','Apple Chancery','URW Chancery L','Segoe Script',cursive;font-style:italic;font-weight:400}
+.name{letter-spacing:0;line-height:1.18}
+.surname{font-family:inherit;letter-spacing:.7px}
+.inner-letter strong{letter-spacing:.2px}
+.closing .signature{font-size:42px;line-height:1.35}
+@media(max-width:600px){.name{font-size:40px}.closing .signature{font-size:35px}}
+.monogram{padding:7px;overflow:hidden;background:#fff8f338}
+.monogram img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 2px 2px #733b4730)}
+.letter-monogram img{display:block;width:clamp(58px,9vw,84px);height:auto;filter:drop-shadow(0 2px 2px #633b2b28)}
+
 </style>
 </head>
 <body class="gate-active">
@@ -122,7 +133,7 @@ body.invitation-opening main,body.invitation-opening .falling-botanicals,body.in
     <h1 class="gate-title" id="gate-title">A letter has arrived</h1>
     <div class="envelope" id="invitation-envelope">
       <div class="envelope-back" aria-hidden="true"></div>
-      <div class="inner-letter" id="inner-letter" aria-hidden="true"><span class="letter-monogram">A · R</span><strong>Abhishek &amp; Ruchi</strong><small>Together with our families</small><p class="letter-message">We request the pleasure of your company as we begin our forever.</p><button class="letter-enter" id="letter-enter" type="button" tabindex="-1" aria-hidden="true">Enter the celebration&nbsp; ✦</button></div>
+      <div class="inner-letter" id="inner-letter" aria-hidden="true"><span class="letter-monogram"><img src="assets/ar-monogram.png" alt=""></span><strong>Abhishek &amp; Ruchi</strong><small>Together with our families</small><p class="letter-message">We request the pleasure of your company as we begin our forever.</p><button class="letter-enter" id="letter-enter" type="button" tabindex="-1" aria-hidden="true">Enter the celebration&nbsp; ✦</button></div>
       <div class="envelope-front envelope-front-left" aria-hidden="true"></div>
       <div class="envelope-front envelope-front-right" aria-hidden="true"></div>
       <div class="envelope-front envelope-front-bottom" aria-hidden="true"></div>
@@ -144,7 +155,7 @@ body.invitation-opening main,body.invitation-opening .falling-botanicals,body.in
 
 <div class="wrap">
 <section class="hero"><div class="hero-inner fade">
-<div class="monogram" aria-hidden="true">A · R</div><div class="eyebrow">Together with our families</div>
+<div class="monogram" aria-hidden="true"><img src="assets/ar-monogram.png" alt=""></div><div class="eyebrow">Together with our families</div>
 <p class="intro">With hearts full of love, we invite you to celebrate our wedding.<br>Your presence and blessings will make our beginning even more beautiful.</p>
 <h1 class="name">Abhishek <span class="surname">Anavkar</span></h1>
 <p class="parents">Son of Sanjay Anavkar &amp; Sangeeta Anavkar</p>
@@ -314,14 +325,14 @@ function createBotanicals(){
   ];
   const count=innerWidth<700?22:38;
   for(let index=0;index<count;index+=1){
-    const isLeaf=index%3===0;
+    const isLeaf=index%5===0;
     const piece=element('span','falling-piece');
     const wind=element('span','wind-body');
     const variant=index%3;
     const shape=element('span','botanical '+(isLeaf?'leaf '+(variant===0?'leaf-young':'leaf-dark'):'petal petal-'+['a','b','c'][variant]));
-    const size=(isLeaf?17:13)+Math.random()*(isLeaf?16:13);
-    const width=isLeaf?size*1.72:size*(.78+Math.random()*.26);
-    const height=isLeaf?size:size*(1.08+Math.random()*.28);
+    const size=isLeaf?8+Math.random()*5:14+Math.random()*12;
+    const width=isLeaf?size*1.55:size*(.78+Math.random()*.26);
+    const height=isLeaf?size*.8:size*(1.08+Math.random()*.28);
     const duration=21+Math.random()*15;
     piece.style.setProperty('--left',(Math.random()*100).toFixed(2)+'%');
     piece.style.setProperty('--piece-w',width.toFixed(1)+'px');
